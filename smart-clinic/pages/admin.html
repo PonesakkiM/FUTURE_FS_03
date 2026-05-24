@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Smart Clinic</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Admin-specific styles */
+    .admin-header {
+      background-color: var(--navy);
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--accent);
+    }
+    .admin-header h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .admin-header a {
+      color: #64b5f6;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .admin-header a:hover { color: #fff; }
+
+    .admin-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .admin-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      margin-bottom: 16px;
+      margin-top: 36px;
+    }
+
+    .chart-label {
+      font-size: 0.8rem;
+      color: var(--dark-grey);
+      margin-bottom: 8px;
+    }
+
+    .doctor-rank-list {
+      border: 1px solid var(--mid-grey);
+    }
+
+    .doctor-rank-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--mid-grey);
+      font-size: 0.88rem;
+    }
+
+    .doctor-rank-item:last-child { border-bottom: none; }
+
+    .rank-num {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 24px;
+    }
+
+    .rank-bar-wrap {
+      flex: 1;
+      margin: 0 16px;
+      background-color: var(--light-grey);
+      height: 10px;
+      border: 1px solid var(--mid-grey);
+    }
+
+    .rank-bar {
+      height: 100%;
+      background-color: var(--accent);
+    }
+
+    .rank-count {
+      font-weight: 700;
+      color: var(--navy);
+      min-width: 40px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div id="loading-overlay">
+  <div class="spinner"></div>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- Admin Header -->
+<div class="admin-header">
+  <h1>🏥 Smart Clinic — Admin Dashboard</h1>
+  <div style="display:flex;gap:16px;align-items:center;">
+    <button id="dark-toggle" style="background:transparent;border:1px solid #64b5f6;color:#64b5f6;padding:5px 10px;cursor:pointer;font-family:Arial,sans-serif;">☾</button>
+    <a href="../index.html">← Back to Website</a>
+  </div>
+</div>
+
+<div class="admin-body">
+
+  <!-- KPI Cards -->
+  <div class="admin-section-title">Overview — Today</div>
+  <div class="admin-grid">
+    <div class="admin-card">
+      <div class="admin-num">47</div>
+      <div class="admin-label">Total Appointments</div>
+    </div>
+    <div class="admin-card" style="border-top-color:#2e7d32;">
+      <div class="admin-num" style="color:#2e7d32;">38</div>
+      <div class="admin-label">Confirmed</div>
+    </div>
+    <div class="admin-card" style="border-top-color:#f57f17;">
+      <div class="admin-num" style="color:#f57f17;">6</div>
+      <div class="admin-label">Pending</div>
+    </div>
+    <div class="admin-card" style="border-top-color:#c62828;">
+      <div class="admin-num" style="color:#c62828;">3</div>
+      <div class="admin-label">Cancelled</div>
+    </div>
+    <div class="admin-card">
+      <div class="admin-num">15</div>
+      <div class="admin-label">Active Doctors</div>
+    </div>
+    <div class="admin-card">
+      <div class="admin-num">₹42,500</div>
+      <div class="admin-label">Today's Revenue</div>
+    </div>
+  </div>
+
+  <!-- Peak Visiting Time Chart -->
+  <div class="admin-section-title">Peak Visiting Hours</div>
+  <div class="chart-label">Number of patients per hour slot (today)</div>
+  <div id="peak-chart"></div>
+
+  <!-- Popular Doctors -->
+  <div class="admin-section-title">Most Booked Doctors (This Week)</div>
+  <div class="doctor-rank-list">
+    <div class="doctor-rank-item">
+      <span class="rank-num">#1</span>
+      <span style="flex:0 0 200px;font-weight:600;">Dr. Kavitha Nair</span>
+      <span style="color:#666;font-size:0.82rem;flex:0 0 120px;">General Physician</span>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;"></div></div>
+      <span class="rank-count">52</span>
+    </div>
+    <div class="doctor-rank-item">
+      <span class="rank-num">#2</span>
+      <span style="flex:0 0 200px;font-weight:600;">Dr. Rajesh Kumar</span>
+      <span style="color:#666;font-size:0.82rem;flex:0 0 120px;">Cardiologist</span>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:75%;"></div></div>
+      <span class="rank-count">39</span>
+    </div>
+    <div class="doctor-rank-item">
+      <span class="rank-num">#3</span>
+      <span style="flex:0 0 200px;font-weight:600;">Dr. Priya Sharma</span>
+      <span style="color:#666;font-size:0.82rem;flex:0 0 120px;">Dermatologist</span>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:65%;"></div></div>
+      <span class="rank-count">34</span>
+    </div>
+    <div class="doctor-rank-item">
+      <span class="rank-num">#4</span>
+      <span style="flex:0 0 200px;font-weight:600;">Dr. Meena Iyer</span>
+      <span style="color:#666;font-size:0.82rem;flex:0 0 120px;">Pediatrician</span>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:55%;"></div></div>
+      <span class="rank-count">28</span>
+    </div>
+    <div class="doctor-rank-item">
+      <span class="rank-num">#5</span>
+      <span style="flex:0 0 200px;font-weight:600;">Dr. Suresh Babu</span>
+      <span style="color:#666;font-size:0.82rem;flex:0 0 120px;">Orthopedic</span>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:44%;"></div></div>
+      <span class="rank-count">23</span>
+    </div>
+  </div>
+
+  <!-- Recent Appointments Table -->
+  <div class="admin-section-title">Recent Appointments</div>
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient Name</th>
+          <th>Phone</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Ramesh Subramaniam</td>
+          <td>+91 98001 11234</td>
+          <td>Dr. Kavitha Nair</td>
+          <td>24 May 2024</td>
+          <td>09:00 AM</td>
+          <td><span class="status-badge confirmed">Confirmed</span></td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Anitha Krishnan</td>
+          <td>+91 97002 22345</td>
+          <td>Dr. Priya Sharma</td>
+          <td>24 May 2024</td>
+          <td>11:00 AM</td>
+          <td><span class="status-badge confirmed">Confirmed</span></td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>Vijay Mohan</td>
+          <td>+91 96003 33456</td>
+          <td>Dr. Rajesh Kumar</td>
+          <td>24 May 2024</td>
+          <td>10:00 AM</td>
+          <td><span class="status-badge pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>Lakshmi Rajan</td>
+          <td>+91 95004 44567</td>
+          <td>Dr. Suresh Babu</td>
+          <td>24 May 2024</td>
+          <td>02:00 PM</td>
+          <td><span class="status-badge confirmed">Confirmed</span></td>
+        </tr>
+        <tr>
+          <td>005</td>
+          <td>Karthik Selvam</td>
+          <td>+91 94005 55678</td>
+          <td>Dr. Anand Rajan</td>
+          <td>24 May 2024</td>
+          <td>03:00 PM</td>
+          <td><span class="status-badge cancelled">Cancelled</span></td>
+        </tr>
+        <tr>
+          <td>006</td>
+          <td>Deepa Venkatesh</td>
+          <td>+91 93006 66789</td>
+          <td>Dr. Meena Iyer</td>
+          <td>24 May 2024</td>
+          <td>04:00 PM</td>
+          <td><span class="status-badge confirmed">Confirmed</span></td>
+        </tr>
+        <tr>
+          <td>007</td>
+          <td>Murugan Pillai</td>
+          <td>+91 92007 77890</td>
+          <td>Dr. Kavitha Nair</td>
+          <td>24 May 2024</td>
+          <td>05:00 PM</td>
+          <td><span class="status-badge pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td>008</td>
+          <td>Saranya Devi</td>
+          <td>+91 91008 88901</td>
+          <td>Dr. Rajesh Kumar</td>
+          <td>25 May 2024</td>
+          <td>10:00 AM</td>
+          <td><span class="status-badge confirmed">Confirmed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Department Stats -->
+  <div class="admin-section-title">Appointments by Department (This Month)</div>
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th>Total Appointments</th>
+          <th>Avg. Wait Time</th>
+          <th>Patient Satisfaction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>General Medicine</td><td>312</td><td>12 min</td><td>4.8 / 5</td></tr>
+        <tr><td>Cardiology</td><td>198</td><td>18 min</td><td>4.7 / 5</td></tr>
+        <tr><td>Dermatology</td><td>176</td><td>15 min</td><td>4.9 / 5</td></tr>
+        <tr><td>Pediatrics</td><td>154</td><td>10 min</td><td>4.8 / 5</td></tr>
+        <tr><td>Orthopedics</td><td>132</td><td>20 min</td><td>4.6 / 5</td></tr>
+        <tr><td>Neurology</td><td>98</td><td>22 min</td><td>4.7 / 5</td></tr>
+        <tr><td>ENT</td><td>87</td><td>14 min</td><td>4.5 / 5</td></tr>
+        <tr><td>Ophthalmology</td><td>76</td><td>16 min</td><td>4.8 / 5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:0.78rem;color:#888;margin-top:20px;padding-top:12px;border-top:1px solid #ccc;">
+    * All data shown is static/demo data for display purposes. Connect a backend to show live data.
+  </p>
+
+</div><!-- end admin-body -->
+
+<script src="../js/main.js"></script>
+</body>
+</html>
