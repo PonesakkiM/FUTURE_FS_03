@@ -1,0 +1,1015 @@
+/* ================================================================
+   Sakthi MultiCare Clinic - Stylesheet
+   Colors: White #FFFFFF | Dark Blue #1F3A5F | Light Blue #4A90E2
+           Light Grey #F5F5F5 | Text #222222 | Border #CCCCCC
+   Design: No border-radius, no shadows, no gradients
+   Font: Arial, Helvetica
+================================================================ */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Utility ---------- */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+
+.section-underline {
+  width: 48px;
+  height: 3px;
+  background-color: #4A90E2;
+  margin-bottom: 28px;
+}
+
+section {
+  padding: 56px 0;
+}
+
+section.grey-bg {
+  background-color: #F5F5F5;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 11px 26px;
+  background-color: #1F3A5F;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid #1F3A5F;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: background-color 0.18s;
+}
+
+.btn:hover {
+  background-color: #162d4a;
+  border-color: #162d4a;
+}
+
+.btn-outline {
+  background-color: #ffffff;
+  color: #1F3A5F;
+  border: 2px solid #1F3A5F;
+}
+
+.btn-outline:hover {
+  background-color: #1F3A5F;
+  color: #ffffff;
+}
+
+/* ================================================================
+   HEADER / NAVBAR
+================================================================ */
+#header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #1F3A5F;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 58px;
+  width: auto;
+  display: block;
+}
+
+/* Legacy text logo classes kept for fallback */
+.logo-cross {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #4A90E2;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.logo-tagline {
+  font-size: 0.75rem;
+  color: #4A90E2;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Nav links */
+.nav-menu {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-menu a {
+  padding: 7px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1F3A5F;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  border-color: #1F3A5F;
+  color: #1F3A5F;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #1F3A5F;
+}
+
+/* ================================================================
+   HERO SECTION
+================================================================ */
+#hero {
+  background-color: #1F3A5F;
+  color: #ffffff;
+  padding: 72px 24px;
+  border-bottom: 4px solid #4A90E2;
+}
+
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-left h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.hero-left h1 span {
+  color: #4A90E2;
+}
+
+.hero-left p {
+  font-size: 0.97rem;
+  color: #c8d8ec;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+.hero-left .btn {
+  background-color: #4A90E2;
+  border-color: #4A90E2;
+  color: #ffffff;
+}
+
+.hero-left .btn:hover {
+  background-color: #357abd;
+  border-color: #357abd;
+}
+
+/* Hero right — info boxes */
+.hero-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.hero-info-box {
+  background-color: #162d4a;
+  border: 1px solid #2a4a6e;
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.hero-info-box .info-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4A90E2;
+}
+
+.hero-info-box .info-label {
+  font-size: 0.78rem;
+  color: #9ab3cc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* ================================================================
+   ABOUT SECTION
+================================================================ */
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 0.94rem;
+  color: #444444;
+  margin-bottom: 14px;
+}
+
+.about-highlights {
+  margin-top: 20px;
+  border-top: 1px solid #CCCCCC;
+  padding-top: 20px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.highlight-item:last-child {
+  border-bottom: none;
+}
+
+.hi-icon {
+  font-size: 1.3rem;
+  min-width: 28px;
+  color: #4A90E2;
+}
+
+.hi-text h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  margin-bottom: 2px;
+}
+
+.hi-text p {
+  font-size: 0.83rem;
+  color: #555555;
+  margin: 0;
+}
+
+.about-image-block {
+  border: 1px solid #CCCCCC;
+  overflow: hidden;
+  background-color: #e8f4fd;
+}
+
+.hospital-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* New: hero photo with logo overlay (uses images/hospital.jpg) */
+.hero-photo {
+  width: 100%;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: block;
+}
+
+.overlay-logo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 110px;
+  height: auto;
+  background: rgba(255,255,255,0.9);
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.hospital-img-fallback {
+  display: none;
+}
+
+.hospital-img-caption {
+  background-color: #1F3A5F;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  border-top: 2px solid #4A90E2;
+}
+
+/* ================================================================
+   SERVICES SECTION
+================================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.service-box {
+  background-color: #ffffff;
+  border: 1px solid #CCCCCC;
+  border-top: 3px solid #4A90E2;
+  padding: 22px 18px;
+  transition: border-top-color 0.15s;
+}
+
+.service-box:hover {
+  border-top-color: #1F3A5F;
+}
+
+.service-box .svc-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.service-box h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  margin-bottom: 6px;
+}
+
+.service-box p {
+  font-size: 0.82rem;
+  color: #555555;
+}
+
+/* ================================================================
+   DOCTORS SECTION
+================================================================ */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.doctor-card {
+  background-color: #ffffff;
+  border: 1px solid #CCCCCC;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.doctor-card:hover {
+  border-color: #4A90E2;
+}
+
+.doctor-avatar {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #CCCCCC;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+}
+
+.doctor-details {
+  padding: 14px 16px;
+}
+
+.doctor-details h3 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  margin-bottom: 4px;
+}
+
+.doctor-details .spec {
+  font-size: 0.8rem;
+  color: #4A90E2;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+
+.doctor-details .avail {
+  font-size: 0.78rem;
+  color: #555555;
+  border-top: 1px solid #CCCCCC;
+  padding-top: 8px;
+}
+
+.avail-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #2e7d32;
+  margin-right: 5px;
+}
+
+/* ================================================================
+   APPOINTMENT CTA SECTION
+================================================================ */
+#appt-cta {
+  background-color: #1F3A5F;
+  color: #ffffff;
+  padding: 52px 24px;
+  text-align: center;
+  border-top: 4px solid #4A90E2;
+  border-bottom: 4px solid #4A90E2;
+}
+
+#appt-cta h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#appt-cta p {
+  font-size: 0.94rem;
+  color: #c8d8ec;
+  margin-bottom: 24px;
+}
+
+#appt-cta .btn {
+  background-color: #4A90E2;
+  border-color: #4A90E2;
+  font-size: 1rem;
+  padding: 13px 32px;
+}
+
+#appt-cta .btn:hover {
+  background-color: #357abd;
+  border-color: #357abd;
+}
+
+/* ================================================================
+   SYMPTOM CHECKER SECTION
+================================================================ */
+#symptom-checker {
+  background-color: #F5F5F5;
+  padding: 56px 0;
+}
+
+.symptom-form-wrap {
+  max-width: 680px;
+}
+
+.symptom-form-wrap p {
+  font-size: 0.9rem;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+.symptom-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.symptom-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.9rem;
+  color: #222222;
+  cursor: pointer;
+  padding: 9px 12px;
+  border: 1px solid #CCCCCC;
+  background-color: #ffffff;
+  transition: border-color 0.15s;
+}
+
+.symptom-checkboxes label:hover {
+  border-color: #4A90E2;
+}
+
+.symptom-checkboxes input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: #1F3A5F;
+}
+
+#symptom-result-box {
+  border: 1px solid #CCCCCC;
+  background-color: #ffffff;
+  padding: 16px 18px;
+  font-size: 0.92rem;
+  color: #222222;
+  min-height: 56px;
+  margin-top: 16px;
+  display: none;
+}
+
+#symptom-result-box.visible {
+  display: block;
+}
+
+#symptom-result-box strong {
+  color: #1F3A5F;
+}
+
+/* ================================================================
+   CONTACT SECTION
+================================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-details h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4A90E2;
+  padding-bottom: 8px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 0.9rem;
+}
+
+.contact-row:last-of-type {
+  border-bottom: none;
+}
+
+.c-icon {
+  font-size: 1.2rem;
+  min-width: 26px;
+  color: #4A90E2;
+}
+
+.c-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4A90E2;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 2px;
+}
+
+.c-value a {
+  color: #222222;
+  transition: color 0.15s;
+}
+
+.c-value a:hover {
+  color: #4A90E2;
+}
+
+/* Contact form */
+.contact-form-wrap h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4A90E2;
+  padding-bottom: 8px;
+}
+
+.form-row {
+  margin-bottom: 14px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1F3A5F;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 5px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid #CCCCCC;
+  background-color: #ffffff;
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  border-color: #4A90E2;
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Map */
+.map-block {
+  margin-top: 20px;
+  border: 1px solid #CCCCCC;
+}
+
+.map-block iframe {
+  width: 100%;
+  height: 220px;
+  display: block;
+  border: none;
+}
+
+.map-caption {
+  background-color: #F5F5F5;
+  border-top: 1px solid #CCCCCC;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: #555555;
+}
+
+/* ================================================================
+   CHAT ASSISTANT WIDGET
+================================================================ */
+#chat-widget {
+  position: fixed;
+  bottom: 0;
+  right: 24px;
+  width: 290px;
+  background-color: #ffffff;
+  border: 1px solid #CCCCCC;
+  border-bottom: none;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background-color: #1F3A5F;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chat-toggle-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat-body {
+  display: none;
+  flex-direction: column;
+}
+
+.chat-body.open {
+  display: flex;
+}
+
+.chat-messages {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px 12px;
+  background-color: #F5F5F5;
+  border-top: 1px solid #CCCCCC;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.chat-msg {
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  max-width: 88%;
+  border: 1px solid #CCCCCC;
+}
+
+.chat-msg.bot {
+  background-color: #ffffff;
+  color: #222222;
+  align-self: flex-start;
+}
+
+.chat-msg.user {
+  background-color: #1F3A5F;
+  color: #ffffff;
+  border-color: #1F3A5F;
+  align-self: flex-end;
+}
+
+.chat-input-row {
+  display: flex;
+  border-top: 1px solid #CCCCCC;
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 9px 11px;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.83rem;
+  color: #222222;
+  background-color: #ffffff;
+  outline: none;
+  border-right: 1px solid #CCCCCC;
+}
+
+.chat-input-row button {
+  background-color: #1F3A5F;
+  color: #ffffff;
+  border: none;
+  padding: 9px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.chat-input-row button:hover {
+  background-color: #162d4a;
+}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+#footer {
+  background-color: #1F3A5F;
+  color: #c8d8ec;
+  padding: 40px 24px 20px;
+  border-top: 3px solid #4A90E2;
+}
+
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 28px;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #2a4a6e;
+  padding-bottom: 8px;
+}
+
+.footer-col p {
+  font-size: 0.84rem;
+  color: #9ab3cc;
+  margin-bottom: 6px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.84rem;
+  color: #9ab3cc;
+  margin-bottom: 6px;
+  transition: color 0.15s;
+}
+
+.footer-col a:hover {
+  color: #4A90E2;
+}
+
+.footer-logo-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.footer-tagline {
+  font-size: 0.8rem;
+  color: #4A90E2;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.footer-bottom {
+  max-width: 1080px;
+  margin: 0 auto;
+  border-top: 1px solid #2a4a6e;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #6a8aaa;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ================================================================
+   TOAST NOTIFICATION
+================================================================ */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1F3A5F;
+  color: #ffffff;
+  padding: 11px 22px;
+  font-size: 0.88rem;
+  border-left: 4px solid #4A90E2;
+  z-index: 9000;
+  display: none;
+}
+
+#toast.show {
+  display: block;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 2px solid #1F3A5F;
+    padding: 8px 0;
+    z-index: 400;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu a {
+    padding: 10px 24px;
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+  }
+
+  #header {
+    position: sticky;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-right {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-inner,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .symptom-checkboxes {
+    grid-template-columns: 1fr;
+  }
+
+  #chat-widget {
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-right {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
