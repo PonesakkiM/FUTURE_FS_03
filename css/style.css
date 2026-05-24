@@ -367,6 +367,8 @@ section.grey-bg {
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
+.overlay-logo { z-index: 3; }
+
 .hospital-img-fallback {
   display: none;
 }
